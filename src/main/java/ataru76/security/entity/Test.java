@@ -1,8 +1,36 @@
 package ataru76.security.entity;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "tests")
 public class Test {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    private int description;
+
+    @Column(name = "description", unique = true)
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @OneToMany(mappedBy = "test")
+    private List<TestReport> TestReports;
+
+
+
+
+    public Test() {
+    }
+
+    public Test(String description, Category category) {
+        this.setDescription(description);
+        this.setCategory(category);
+    }
 
 
     public int getId() {
@@ -13,11 +41,27 @@ public class Test {
         this.id = id;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(int description) {
+    public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<TestReport> getTestReports() {
+        return TestReports;
+    }
+
+    public void setTestReports(List<TestReport> testReports) {
+        TestReports = testReports;
     }
 }

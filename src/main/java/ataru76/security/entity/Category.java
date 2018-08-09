@@ -1,9 +1,29 @@
 package ataru76.security.entity;
 
-public class Category {
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+@Table(name = "categories")
+public class Category  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    private int description;
-    private Test[] tests;
+
+    @Column(name = "description", unique = true)
+    private String description;
+    @OneToMany(mappedBy = "category")
+    private Set<Test> tests;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getId() {
         return id;
@@ -13,19 +33,19 @@ public class Category {
         this.id = id;
     }
 
-    public int getDescription() {
-        return description;
-    }
 
-    public void setDescription(int description) {
-        this.description = description;
-    }
-
-    public Test[] getTests() {
+    public Set<Test> getTests() {
         return tests;
     }
 
-    public void setTests(Test[] tests) {
+    public void setTests(Set<Test> tests) {
         this.tests = tests;
+    }
+
+    public Category() {
+    }
+
+    public Category(String description) {
+        setDescription(description);
     }
 }

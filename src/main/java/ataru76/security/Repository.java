@@ -37,7 +37,7 @@ public class Repository {
     public Repository(boolean enableCreate) {
         try {
             // Create Metadata
-            MetadataSources sources = getMetadata(enableCreate);
+             sources = getMetadata(enableCreate);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 
@@ -174,12 +174,13 @@ public class Repository {
 
 
         System.out.println("test\t"  + tests.get(0).getTestReports().stream().map(r -> r.getReport().getName()).collect(Collectors.joining("\t")));
+        System.out.println("rank\t"  + tests.get(0).getTestReports().stream().map(r ->  Integer.toString(r.getReport().getRank())).collect(Collectors.joining("\t")));
+
+
+
 
         for (Test test:tests) {
             System.out.print(test.getDescription()  + "\t" + test.getTestReports().stream().map(r -> r.getResult()).collect(Collectors.joining("\t")) + "\n" );
-
-
-
         }
 
 

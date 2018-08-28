@@ -13,6 +13,10 @@ public class TestReport {
     private int id;
     @Column(name="result")
     private String result;
+    @Column(name="severity")
+    private int severity;
+
+
     @ManyToOne
     @JoinColumn(name="test_id", nullable=false)
     private Test test;
@@ -52,5 +56,13 @@ public class TestReport {
 
     public Report getReport() {
         return report;
+    }
+
+    public int getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(int severity) {
+        this.severity = severity;
     }
 }

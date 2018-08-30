@@ -1,7 +1,10 @@
 package ataru76.security.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tests")
@@ -33,13 +36,6 @@ public class Test {
     }
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getDescription() {
         return description;
@@ -63,5 +59,13 @@ public class Test {
 
     public void setTestReports(List<TestReport> testReports) {
         TestReports = testReports;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

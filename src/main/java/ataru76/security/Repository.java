@@ -4,7 +4,6 @@ import ataru76.security.entity.Category;
 import ataru76.security.entity.Report;
 import ataru76.security.entity.Test;
 import ataru76.security.entity.TestReport;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -17,9 +16,7 @@ import org.hibernate.tool.schema.TargetType;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Root;
-import javax.security.auth.login.Configuration;
 import java.io.IOException;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -37,7 +34,7 @@ public class Repository {
     public Repository(boolean enableCreate) {
         try {
             // Create Metadata
-             sources = getMetadata(enableCreate);
+             sources = getMetadata_h2(enableCreate);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 
@@ -77,11 +74,11 @@ public class Repository {
     }
 
 
-    private static MetadataSources getMetadata(boolean create) {
+    private static MetadataSources getMetadata_h2(boolean create) {
         Map<String, String> settings = new HashMap<>();
         settings.put("connection.driver_class", "org.h2.Driver");
         settings.put("dialect", "org.hibernate.dialect.H2Dialect");
-        settings.put("hibernate.connection.url", "jdbc:h2:~/lynis.h2db");
+        settings.put("hibernate.connection.url", "jdbc:h2:~/lynis.db");
         settings.put("hibernate.connection.username", "root");
         settings.put("hibernate.connection.password", "");
         settings.put("show_sql", "true");
@@ -103,6 +100,70 @@ public class Repository {
         return metadata;
 
     }
+    private static MetadataSources getMetadata_Sqlite(boolean create) {
+        Map<String, String> settings = new HashMap<>();
+        settings.put("connection.driver_class", "org.sqlite.JDBC");
+        settings.put("hibernate.dialect", "org.hibernate.dialect.SQLiteDialect");
+        settings.put("hibernate.archive.autodetection", "class");
+        settings.put("hibernate.connection.url", "jdbc:sqlite:/home/koji/lynis.db");
+        settings.put("hibernate.connection.user", "");
+        settings.put("hibernate.connection.username", "");
+        settings.put("hibernate.connection.autocommit", "false");
+        //settings.put("hibernate.flushMode", "");
+        settings.put("hibernate.cache.use_second_level_cache", "false");
+        settings.put("hibernate.cache.provider_class", "org.hibernate.cache.NoCacheProvider");
+
+        settings.put("show_sql", "true");
+        settings.put("format_sql", "true");
+        if (create)
+            settings.put("hibernate.hbm2ddl.auto", "create-drop");
+
+
+        StandardServiceRegistry standardServiceRegistry = new StandardServiceRegistryBuilder()
+                .applySettings(settings)
+                .build();
+
+        MetadataSources metadata = new MetadataSources(standardServiceRegistry);
+
+        metadata.addAnnotatedClass(Test.class);
+        metadata.addAnnotatedClass(Category.class);
+        metadata.addAnnotatedClass(TestReport.class);
+        metadata.addAnnotatedClass(Report.class);
+        return metadata;
+
+    }
+    private static MetadataSources getMetadata_HSQL(boolean create) {
+        Map<String, String> settings = new HashMap<>();
+        settings.put("connection.driver_class", "org.hsqldb.jdbc.JDBCDriver");
+        settings.put("dialect", "org.hibernate.dialect.HSQLDialect");
+        settings.put("hibernate.connection.url", "jdbc:hsqldb:file:/home/koji/lynis.db;sql.enforce_strict_size=true;hsqldb.tx=mvcc");
+        settings.put("hibernate.connection.username", "sa");
+        settings.put("hibernate.connection.password", "sa");
+        settings.put("show_sql", "true");
+        settings.put("format_sql", "true");
+        if (create)
+            settings.put("hibernate.hbm2ddl.auto", "create-drop");
+
+
+        StandardServiceRegistry standardServiceRegistry = new StandardServiceRegistryBuilder()
+                .applySettings(settings)
+                .build();
+
+        MetadataSources metadata = new MetadataSources(standardServiceRegistry);
+
+        metadata.addAnnotatedClass(Test.class);
+        metadata.addAnnotatedClass(Category.class);
+        metadata.addAnnotatedClass(TestReport.class);
+        metadata.addAnnotatedClass(Report.class);
+        return metadata;
+
+    }
+
+
+
+
+
+
 
     public Session getSession() {
         return sessionFactory.openSession();

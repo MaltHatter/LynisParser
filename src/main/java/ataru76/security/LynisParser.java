@@ -10,23 +10,14 @@ import org.hibernate.criterion.Projections;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LynisParser {
-  //  private static Pattern testPattern = Pattern.compile("-(?<desc>[\\w\\s]+)\\[(?<color>[\\w\\s]+)#(?<status>[\\w\\s]+)\\]");
-    //private static Pattern testPattern =Pattern.compile("\\[\\d*\\w*-\\s*(?<desc>(\\w|\\s)*)\u001B\\[41C \\[ \u001B\\[\\d*;(?<color>\\d*)\\w\\s*(?<status>\\w+)\u001B\\[0m \\]");
-    private static Pattern testPattern =Pattern.compile("\u001B\\[(\\d|\\w|\\s)*-\\s* ((?<desc>.*)?\u001B)\\[\\d*\\w*\\s*\\[\\s*\u001B(\\[(?<color>\\d*;\\d*)m(?<value>.*)?\u001B\\[0).*");
-
-
-
-
-  //  private static Pattern categoryPattern = Pattern.compile("\\[(\\+)\\](?<desc>[\\w\\s]+)");
-    private static Pattern rankPattern = Pattern.compile("Hardening\\s*index\\s*:\\s*(?<rank>\\d*)\\s*\\[[#\\s]*\\]");
-
-
-    private static Pattern categoryPattern =Pattern.compile("\\[(\\+)\\]\\s*\u001B\\[(\\d*;)?\\d*m(?<desc>[\\w\\s]+)\u001B\\[0m");
-//Pattern.compile("\\[(\\+)\\]\\s*\u001B\\[(\\d*;)?\\d*m(?<desc>[\\w\\s]+)\u001B\\[0m").matcher(line).matches()
+    private static Pattern testPattern = Pattern.compile("\\s*\u001B\\[(\\d|\\w|\\s)*-\\s* ((?<desc>.*)?\u001B)\\[\\d*\\w*\\s*\\[\\s*\u001B(\\[(?<color>\\d*;\\d*)m(?<value>.*)?\u001B\\[0).*");
+    private static Pattern categoryPattern = Pattern.compile("\\s*\\[\\+\\]\\s*\u001B\\[\\d*;\\d*m(?<desc>.*)?\u001B\\[0m\\s*");
+    private static Pattern rankPattern = Pattern.compile("\\s*\u001B\\[\\d*;\\d*mHardening\\s*index\u001B\\[0m\\s*:\\s*\u001B\\[(?<color>\\d*;\\d*)m(?<rank>\\d*).*");
 
 
     private Repository repository;
@@ -40,8 +31,6 @@ public class LynisParser {
 
 
     public Report parseLog(String name, String auditor, String file) throws IOException {
-
-
         String category = "";
 
         session.beginTransaction();
@@ -51,60 +40,34 @@ public class LynisParser {
         report.setName(Paths.get(file).getFileName().toString());
 
         Category category1 = null;
-        String content = new String(Files.readAllBytes(Paths.get("/home/koji/lynis_reports/fedora")));
 
-    /*   //fix status color
-        content = content.replaceAll("^(?!\\[+\\])\u001B\\[1;37m", "white#").replaceAll("\u001B\\[1;32m", "green#").replaceAll("\u001B\\[1;33m", "yellow#").replaceAll("\u001B\\[1;31m", "red#");
-        //remove others codes
-        content = content.replaceAll("\u001B\\[(\\d*;)?\\d*\\w", "");
-
-*/
-
-
+        String content = new String(Files.readAllBytes(Paths.get(file)));
+        //String content = new String(Files.readAllBytes(Paths.get("/home/koji/lynis_reports/fedora")));
 
         try (BufferedReader br = new BufferedReader(new StringReader(content))) {
             String line;
 
             while ((line = br.readLine()) != null) {
-                //line = line.trim();
-                //fix status color
-/*
-                content = content.replaceAll("^(?!\\[+\\])\u001B\\[1;37m", "white#").replaceAll("\u001B\\[1;32m", "green#").replaceAll("\u001B\\[1;33m", "yellow#").replaceAll("\u001B\\[1;31m", "red#");
-                //remove others codes
-                content = content.replaceAll("\u001B\\[(\\d*;)?\\d*\\w", "");
-*/
 
-                Matcher testMatcher = testPattern.matcher(line);
-                if (testMatcher.matches() ) {
-                    String d= testMatcher.group("desc");
-                    String v= testMatcher.group("value");
-                    String c= testMatcher.group("color");
-                    System.out.println(String.format("importing %s => %s  %s" ,d,v,c));
-
-
-                }
-
-
-
-
-               /* TestReport test = null;
                 Matcher categoryMatcher = categoryPattern.matcher(line);
                 if (categoryMatcher.matches())
                     category1 = parseCategory(categoryMatcher);
 
                 Matcher testMatcher = testPattern.matcher(line);
-                if (testMatcher.matches() && category1 != null) {
-                    test = parseTest(testMatcher, category1);
-
-                    report.getTests().add(test);
+                if (testMatcher.matches() && category1 != null){
+                    TestReport testReport = parseTest(testMatcher, category1);
+                    testReport.setReport(report);
+                    report.getTests().add(testReport);
                 }
 
+
                 Matcher rankMatcher = rankPattern.matcher(line);
-                if (rankMatcher.matches())
-                    report.setRank(Integer.parseInt(rankMatcher.group("rank").trim()));*/
+                if (rankMatcher.matches()) {
+                    report.setRank(Integer.parseInt(rankMatcher.group("rank").trim()));
+                    report.setSeverity(convertColorCodeToSeverity(rankMatcher.group("color")));
+                }
 
             }
-
 
             session.save(report);
             session.getTransaction().commit();
@@ -117,11 +80,21 @@ public class LynisParser {
         } finally {
 
             session.close();
-
+          //  session.disconnect();
 
         }
         return report;
     }
+
+    public Object generate() throws IOException {
+        List<Report> reports= repository.getAll(session,Report.class);
+        return null;
+
+    }
+
+
+
+
 
     private Category parseCategory(Matcher matcher) {
         String newCat = matcher.group("desc").trim();
@@ -143,83 +116,41 @@ public class LynisParser {
         }
 
         TestReport testReport = new TestReport();
-        testReport.setResult(matcher.group("status").trim());
+        testReport.setResult(matcher.group("value").trim());
         testReport.setTest(test);
+        testReport.setSeverity(convertColorCodeToSeverity(matcher.group("color")));
 
 
-        switch(matcher.group("color").trim()){
-            case "37":testReport.setSeverity(0);break;
-            case "32":testReport.setSeverity(1);break;
-            case "33":testReport.setSeverity(2);break;
-            case "31":testReport.setSeverity(3);break;
-            default:
-            testReport.setSeverity(1);
-        }
         return testReport;
     }
 
-    /*private String cleanText(String text){
-     */
 
-    /**
-     * [1;37m bianco
-     * [1;32m verde
-     * [1;33m giallo
-     * [1;31m rosso
-     *//*
-    /
-
-
-}
-    */
-
-
-  /*  public Test getTest(String test, String category, Repository repository, Session session) {
-        Test o = repository.getSingle(session, Test.class, "description", test);
-
-        if (o == null) {
-            Category cat = repository.getSingle(session, Category.class, "description", category);
-            o = new Test(test, (cat != null) ? cat : new Category(category));
+    public static int convertColorCodeToSeverity(String color) {
+        switch (color.trim()) {
+            case "1;37":
+                return 0;
+            case "1;32":
+                return 1;
+            case "1;33":
+                return 2;
+            case "1;31":
+                return 3;
+            default:
+                return 1;
         }
-
-        return o;
     }
 
 
-    private static String parseCategory(String value, String current) {
-        Matcher matcher = categoryPattern.matcher(value);
-        if (!matcher.matches())
-            return null;
-        String newCat = matcher.group("desc").trim();
-
-
-        return (newCat != null) ? newCat : current;
-    }
-
-    private static String parseTest(String value, String current) {
-        Matcher matcher = categoryPattern.matcher(value);
-        if (!matcher.matches())
-            return null;
-        String newCat = matcher.group("desc").trim();
-
-
-        return (newCat != null) ? newCat : current;
-    }
-*/
     public static void main(String[] args) throws IOException {
-        File file = new File("/home/koji/lynis_reports/fedora");
-        LynisParser parser = new LynisParser();
-        parser.parseLog("", "", file.getAbsolutePath());
 
-
-     /*   Repository repository = new Repository(false);
-
-        repository.generateReport(repository.getSession());
+      /*  LynisParser parser = new LynisParser();
+        parser.generate();
 */
-
-
-        /*
-
+        if (!Files.exists(Paths.get("~/lynis.h2db"))) {
+            Repository create = new Repository(true);
+            create.makeDatabase();
+            create.shutdown();
+        }
         File folder = new File("/home/koji/lynis_reports/");
         File[] listOfFiles = folder.listFiles();
 
@@ -229,15 +160,11 @@ public class LynisParser {
                 LynisParser parser = new LynisParser();
                 parser.parseLog("","",file.getAbsolutePath());
 
+
             }
         }
-*/
+        System.out.println("complete!" );
 
-
-        //Report report = parser.parseLog("", "", "/home/koji/lynis_reports/fedora");
-
-
-        //Report report = parser.parseLog("", "", "/home/koji/test");
 
     }
 }

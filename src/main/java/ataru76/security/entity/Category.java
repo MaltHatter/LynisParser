@@ -1,7 +1,10 @@
 package ataru76.security.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "categories")
@@ -48,4 +51,5 @@ public class Category  {
     public Category(String description) {
         setDescription(description);
     }
+
 }

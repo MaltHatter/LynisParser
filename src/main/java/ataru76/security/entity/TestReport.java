@@ -1,17 +1,22 @@
 package ataru76.security.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "report_tests")
 public class TestReport {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-    @Column(name="result")
+
+ @Column(name="result")
     private String result;
     @Column(name="severity")
     private int severity;
@@ -45,14 +50,7 @@ public class TestReport {
     }
 
 
-    public int getId() {
-        return id;
-    }
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Report getReport() {
         return report;
@@ -64,5 +62,17 @@ public class TestReport {
 
     public void setSeverity(int severity) {
         this.severity = severity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c23a8538-9323-418b-93f8-aa5007a23658" name="Default" comment="">
+    <list default="true" id="c23a8538-9323-418b-93f8-aa5007a23658" name="Default" comment="added parsing of test with color">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ataru76/security/LynisParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ataru76/security/LynisParser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ataru76/security/Repository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ataru76/security/Repository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ataru76/security/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ataru76/security/entity/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ataru76/security/entity/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ataru76/security/entity/Report.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ataru76/security/entity/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ataru76/security/entity/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ataru76/security/entity/TestReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ataru76/security/entity/TestReport.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,17 +27,39 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/lynis_parser$Import.ic" NAME="Import Coverage Results" MODIFIED="1533896936763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/lynis_parser$Import.ic" NAME="Import Coverage Results" MODIFIED="1535535949762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="LynisParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="208">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#LynisParser#0;class#LynisParser#0" />
+                <element signature="method#parseCategory#0;class#LynisParser#0" />
+                <element signature="method#parseTest#0;class#LynisParser#0" />
+                <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Category.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+              <folding>
+                <element signature="e#748#749#0" expanded="true" />
+                <element signature="e#782#783#0" expanded="true" />
+                <element signature="e#836#837#0" expanded="true" />
+                <element signature="e#882#883#0" expanded="true" />
+                <element signature="e#676#677#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#762#763#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,10 +68,22 @@
       <file leaf-file-name="Report.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="375">
+              <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
+                <element signature="e#881#882#0" expanded="true" />
+                <element signature="e#923#924#0" expanded="true" />
+                <element signature="e#951#952#0" expanded="true" />
+                <element signature="e#1434#1435#0" expanded="true" />
+                <element signature="e#1465#1466#0" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1550#1551#0" expanded="true" />
+                <element signature="e#1544#1545#0" expanded="true" />
+                <element signature="e#1569#1570#0" expanded="true" />
+                <element signature="e#1602#1603#0" expanded="true" />
+                <element signature="e#1630#1631#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,11 +92,12 @@
       <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="883">
+              <caret line="235" lean-forward="true" selection-start-line="229" selection-start-column="4" selection-end-line="235" />
               <folding>
-                <element signature="method#shutdown#0;class#Repository#0" />
-                <element signature="method#getMetadata#0;class#Repository#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3447#4555#0" />
+                <element signature="method#getSession#0;class#Repository#0" />
                 <element signature="method#saveReport#0;class#Repository#0" />
                 <element signature="method#getSingle#0;class#Repository#0" />
               </folding>
@@ -62,17 +105,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="54" column="24" selection-start-line="50" selection-start-column="7" selection-end-line="54" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1169#1170#0" expanded="true" />
                 <element signature="e#1203#1204#0" expanded="true" />
                 <element signature="e#1267#1268#0" expanded="true" />
                 <element signature="e#1308#1309#0" expanded="true" />
+                <element signature="e#1558#1559#0" expanded="true" />
+                <element signature="e#1583#1584#0" expanded="true" />
+                <element signature="e#1617#1618#0" expanded="true" />
+                <element signature="e#1645#1646#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,13 +137,21 @@
       <file leaf-file-name="TestReport.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="340">
+              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
               <folding>
+                <element signature="e#985#986#0" expanded="true" />
+                <element signature="e#1014#1015#0" expanded="true" />
                 <element signature="e#1046#1047#0" expanded="true" />
                 <element signature="e#1077#1078#0" expanded="true" />
                 <element signature="e#1122#1123#0" expanded="true" />
                 <element signature="e#1162#1163#0" expanded="true" />
+                <element signature="e#1402#1403#0" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="e#1461#1462#0" expanded="true" />
+                <element signature="e#1489#1490#0" expanded="true" />
+                <element signature="e#1281#1282#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,14 +179,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/ataru76/security/HibernateHelper.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/BaseDbEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java" />
       </list>
     </option>
   </component>
@@ -142,6 +206,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="964" />
     <option name="width" value="956" />
     <option name="height" value="1044" />
   </component>
@@ -153,7 +218,57 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lynis-parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LynisParser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynis-parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LynisParser" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynis-parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LynisParser" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynis-parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LynisParser" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynis-parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LynisParser" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynis-parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LynisParser" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -161,6 +276,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TheInnovationFactory/nemo/nemo-dummy" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -252,16 +370,24 @@
       <workItem from="1535360021607" duration="1294000" />
       <workItem from="1535367633811" duration="619000" />
       <workItem from="1535390091731" duration="1039000" />
-      <workItem from="1535444636918" duration="10178000" />
+      <workItem from="1535444636918" duration="10272000" />
+      <workItem from="1535529696077" duration="15223000" />
     </task>
+    <task id="LOCAL-00001" summary="added parsing of test with color">
+      <created>1535477413587</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1535477413587</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69675000" />
+    <option name="totallyTimeSpent" value="84992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -272,20 +398,20 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.08235294" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.32941177" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3296875" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.20213903" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3296875" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.27593583" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -295,34 +421,34 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Designer" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.32941177" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.15187165" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3144385" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3296875" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="UI Designer" order="4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.2342246" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.08235294" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.15187165" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3296875" />
+      <window_info id="Favorites" order="5" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,74 +457,48 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added parsing of test with color" />
+    <option name="LAST_COMMIT_MESSAGE" value="added parsing of test with color" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java</url>
-          <line>214</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java</url>
-          <line>186</line>
+          <line>247</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java</url>
-          <line>181</line>
+          <line>242</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java</url>
-          <line>124</line>
+          <line>185</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java</url>
-          <line>92</line>
+          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java</url>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="58" />
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java</url>
-          <line>96</line>
+          <line>71</line>
           <properties />
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="63" />
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="64" />
+      <option name="time" value="87" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -412,47 +512,47 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;).text</expression-string>
+        <expression-string>report</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;).find()</expression-string>
+        <expression-string>reports</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;).replaceAll(&quot;sss&quot;)</expression-string>
+        <expression-string>tests</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;)</expression-string>
+        <expression-string>rankMatcher.group(&quot;color&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;).groups</expression-string>
+        <expression-string>rankMatcher.group(&quot;rank&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;).group()</expression-string>
+        <expression-string>rankPattern.matcher(&quot;\u001B[0;36mHardening index\u001B[0m : \u001B[1;37m68\u001B[0m [\u001B[1;33m#############\u001B[0m       ]&quot;).matches()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B]&quot;).matches()</expression-string>
+        <expression-string>rankPattern.matcher(&quot;  \u001B[0;36mHardening index\u001B[0m : \u001B[1;37m68\u001B[0m [\u001B[1;33m#############\u001B[0m       ]&quot;).matches()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[(.*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B&quot;).matches()</expression-string>
+        <expression-string>rankPattern.matcher(&quot;  \u001B[0;36mHardening index\u001B[0m : \u001B[1;37m68\u001B[0m [\u001B[1;33m#############\u001B[0m       ]&quot;).ma</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern.compile(&quot;\u001B\\[((\\.)*?\u001B)\\]&quot;).matcher(&quot;\u001B[4C- net.ipv4.conf.all.send_redirects (exp: 0)\u001B&quot;).matches()</expression-string>
+        <expression-string>rankPattern.matcher(&quot;  \u001B[0;36mHardening index\u001B[0m : \u001B[1;37m68\u001B[0m [\u001B[1;33m#############\u001B[0m       ]&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -469,6 +569,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -478,10 +582,18 @@
         <state relative-caret-position="210">
           <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
             <element signature="e#1046#1047#0" expanded="true" />
             <element signature="e#1077#1078#0" expanded="true" />
             <element signature="e#1122#1123#0" expanded="true" />
             <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -491,8 +603,9 @@
         <state relative-caret-position="645">
           <caret line="112" selection-start-line="112" selection-end-line="112" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -504,7 +617,10 @@
         <state relative-caret-position="660">
           <caret line="44" column="65" lean-forward="true" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -515,6 +631,18 @@
           <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -524,8 +652,9 @@
         <state relative-caret-position="645">
           <caret line="112" selection-start-line="112" selection-end-line="112" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -542,6 +671,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,7 +684,10 @@
         <state relative-caret-position="930">
           <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -562,6 +698,18 @@
           <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -571,8 +719,9 @@
         <state relative-caret-position="645">
           <caret line="112" selection-start-line="112" selection-end-line="112" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -589,6 +738,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -598,7 +751,10 @@
         <state relative-caret-position="2175">
           <caret line="156" column="10" selection-start-line="156" selection-start-column="10" selection-end-line="156" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -609,6 +765,18 @@
           <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -630,6 +798,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -639,8 +811,9 @@
         <state relative-caret-position="1035">
           <caret line="185" selection-start-line="185" selection-end-line="185" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -652,7 +825,10 @@
         <state relative-caret-position="2280">
           <caret line="163" column="16" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="66" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -663,6 +839,18 @@
           <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -684,6 +872,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -693,8 +885,9 @@
         <state relative-caret-position="1065">
           <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -706,7 +899,10 @@
         <state relative-caret-position="2280">
           <caret line="163" column="16" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="66" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -717,6 +913,18 @@
           <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -738,6 +946,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -747,8 +959,9 @@
         <state relative-caret-position="915">
           <caret line="176" column="88" selection-start-line="176" selection-start-column="88" selection-end-line="176" selection-end-column="88" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -760,7 +973,10 @@
         <state relative-caret-position="855">
           <caret line="67" selection-start-line="67" selection-end-line="67" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -771,6 +987,18 @@
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -780,8 +1008,9 @@
         <state relative-caret-position="360">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -812,6 +1041,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -821,7 +1054,10 @@
         <state relative-caret-position="90">
           <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -832,6 +1068,18 @@
           <caret line="21" column="64" lean-forward="true" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,6 +1094,10 @@
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -855,8 +1107,9 @@
         <state relative-caret-position="735">
           <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
@@ -898,13 +1151,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/javax/persistence/Entity.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -913,13 +1159,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/BaseDbEntity.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib64/jvm/java-1.8.0/jre/lib/rt.jar!/java/util/function/Function.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -927,62 +1166,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        <state relative-caret-position="479">
+          <caret line="54" column="24" selection-start-line="50" selection-start-column="7" selection-end-line="54" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding>
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1077#1078#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1169#1170#0" expanded="true" />
             <element signature="e#1203#1204#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
             <element signature="e#1308#1309#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/Repository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="883">
+          <caret line="235" lean-forward="true" selection-start-line="229" selection-start-column="4" selection-end-line="235" />
           <folding>
-            <element signature="method#shutdown#0;class#Repository#0" />
-            <element signature="method#getMetadata#0;class#Repository#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#4555#0" />
+            <element signature="method#getSession#0;class#Repository#0" />
             <element signature="method#saveReport#0;class#Repository#0" />
             <element signature="method#getSingle#0;class#Repository#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/TestReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="340">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1122#1123#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/entity/Report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ataru76/security/LynisParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="method#LynisParser#0;class#LynisParser#0" />
+            <element signature="method#parseCategory#0;class#LynisParser#0" />
+            <element signature="method#parseTest#0;class#LynisParser#0" />
+            <element signature="method#convertColorCodeToSeverity#0;class#LynisParser#0" />
           </folding>
         </state>
       </provider>
@@ -990,9 +1281,81 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8 (1)</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>lynis-parser</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8 (1)</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

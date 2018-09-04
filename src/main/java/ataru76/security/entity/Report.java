@@ -1,11 +1,10 @@
 package ataru76.security.entity;
 
+import ataru76.security.Severities;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "reports")
@@ -24,16 +23,12 @@ public class Report {
     private String auditor;
     @Column(name = "rank")
     private int rank;
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "severity")
-    private int severity;
-
-
-
-   /* @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "report_id")*/
+    private Severities severity;
 
     @OneToMany(mappedBy = "report",cascade = CascadeType.ALL)
-    private Set<TestReport> tests;
+    private List<TestReport> tests;
 
     public String getAuditor() {
         return auditor;
@@ -52,16 +47,16 @@ public class Report {
     }
 
 
-    public Set<TestReport> getTests() {
+    public List<TestReport> getTests() {
         return tests;
     }
 
-    public void setTests(Set<TestReport> tests) {
+    public void setTests(List<TestReport> tests) {
         this.tests = tests;
     }
 
     public Report() {
-        tests = new HashSet<>();
+        tests = new ArrayList<>();
     }
 
 
@@ -73,11 +68,11 @@ public class Report {
         this.name = name;
     }
 
-    public int getSeverity() {
+    public Severities getSeverity() {
         return severity;
     }
 
-    public void setSeverity(int severity) {
+    public void setSeverity(Severities severity) {
         this.severity = severity;
     }
 

@@ -1,5 +1,6 @@
 package ataru76.security.entity;
 
+import ataru76.security.Severities;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,24 +14,24 @@ public class TestReport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
- @Column(name="result")
+    @Column(name = "result")
     private String result;
-    @Column(name="severity")
-    private int severity;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "severity")
+    private Severities severity;
 
 
     @ManyToOne
-    @JoinColumn(name="test_id", nullable=false)
+    @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
 
     @ManyToOne
-    @JoinColumn(name="report_id", nullable=false)
+    @JoinColumn(name = "report_id", nullable = false)
     private Report report;
-
 
 
     public String getResult() {
@@ -50,17 +51,15 @@ public class TestReport {
     }
 
 
-
-
     public Report getReport() {
         return report;
     }
 
-    public int getSeverity() {
+    public Severities getSeverity() {
         return severity;
     }
 
-    public void setSeverity(int severity) {
+    public void setSeverity(Severities severity) {
         this.severity = severity;
     }
 

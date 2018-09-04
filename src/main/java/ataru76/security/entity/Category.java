@@ -3,6 +3,7 @@ package ataru76.security.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,7 +18,7 @@ public class Category  {
     @Column(name = "description", unique = true)
     private String description;
     @OneToMany(mappedBy = "category")
-    private Set<Test> tests;
+    private List<Test> tests;
 
 
     public String getDescription() {
@@ -37,11 +38,11 @@ public class Category  {
     }
 
 
-    public Set<Test> getTests() {
+    public List<Test> getTests() {
         return tests;
     }
 
-    public void setTests(Set<Test> tests) {
+    public void setTests(List<Test> tests) {
         this.tests = tests;
     }
 

@@ -40,6 +40,7 @@ public class LynisParser {
         report.setName(Paths.get(file).getFileName().toString());
 
         Category category1 = null;
+//List<String> lines = Files.readAllLines(Paths.get("./duke.txt"), Charset.defaultCharset());
 
         String content = new String(Files.readAllBytes(Paths.get(file)));
         //String content = new String(Files.readAllBytes(Paths.get("/home/koji/lynis_reports/fedora")));
@@ -86,15 +87,14 @@ public class LynisParser {
         return report;
     }
 
-    public Object generate() throws IOException {
-        List<Report> reports= repository.getAll(session,Report.class);
-        return null;
+    public Object generateComparative() throws IOException {
+      /*  List<Report> reports= repository.generateReport(session,"/home/koji/lynis.csv");
+        return reports;
+       */
 
+        List<Report> reports= repository.generateReportText(session,"/home/koji/lynis-comparative.csv");
+        return reports;
     }
-
-
-
-
 
     private Category parseCategory(Matcher matcher) {
         String newCat = matcher.group("desc").trim();
@@ -125,33 +125,30 @@ public class LynisParser {
     }
 
 
-    public static int convertColorCodeToSeverity(String color) {
+    public static Severities convertColorCodeToSeverity(String color) {
         switch (color.trim()) {
             case "1;37":
-                return 0;
+                return Severities.OK;
             case "1;32":
-                return 1;
+                return Severities.LOW;
             case "1;33":
-                return 2;
+                return Severities.MEDIUM;
             case "1;31":
-                return 3;
+                return Severities.HIGH;
             default:
-                return 1;
+                return Severities.LOW;
         }
     }
 
-
-    public static void main(String[] args) throws IOException {
-
-      /*  LynisParser parser = new LynisParser();
-        parser.generate();
-*/
+    public static void createDB(){
         if (!Files.exists(Paths.get("~/lynis.h2db"))) {
             Repository create = new Repository(true);
             create.makeDatabase();
             create.shutdown();
         }
-        File folder = new File("/home/koji/lynis_reports/");
+    }
+    public static void importAll(String path) throws IOException {
+        File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
@@ -164,6 +161,19 @@ public class LynisParser {
             }
         }
         System.out.println("complete!" );
+    }
+
+
+
+    public static void main(String[] args) throws IOException {
+        //LynisParser.createDB
+        //LynisParser.importAll("/home/koji/lynis_reports/");
+
+
+
+      new LynisParser().generateComparative();
+
+System.exit(0);
 
 
     }

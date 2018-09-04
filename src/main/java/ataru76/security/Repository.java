@@ -16,8 +16,15 @@ import org.hibernate.tool.schema.TargetType;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +41,7 @@ public class Repository {
     public Repository(boolean enableCreate) {
         try {
             // Create Metadata
-             sources = getMetadata_h2(enableCreate);
+            sources = getMetadata_h2(enableCreate);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 
@@ -100,6 +107,7 @@ public class Repository {
         return metadata;
 
     }
+
     private static MetadataSources getMetadata_Sqlite(boolean create) {
         Map<String, String> settings = new HashMap<>();
         settings.put("connection.driver_class", "org.sqlite.JDBC");
@@ -132,6 +140,7 @@ public class Repository {
         return metadata;
 
     }
+
     private static MetadataSources getMetadata_HSQL(boolean create) {
         Map<String, String> settings = new HashMap<>();
         settings.put("connection.driver_class", "org.hsqldb.jdbc.JDBCDriver");
@@ -158,11 +167,6 @@ public class Repository {
         return metadata;
 
     }
-
-
-
-
-
 
 
     public Session getSession() {
@@ -226,28 +230,80 @@ public class Repository {
     }
 
 
-    public List<Report> generateReport(Session session) {
-       List<Test> tests = getAll(session,Test.class);
-       if(tests==null||tests.isEmpty()){
-           System.out.println("No reports found!" );
-           return null;
-       }
+    private static String writeStatus(TestReport test) {
+        switch (test.getSeverity()) {
+            case OK:
+                return "";
+            case LOW:
+                return "\u2713";
 
-
-        System.out.println("test\t"  + tests.get(0).getTestReports().stream().map(r -> r.getReport().getName()).collect(Collectors.joining("\t")));
-        System.out.println("rank\t"  + tests.get(0).getTestReports().stream().map(r ->  Integer.toString(r.getReport().getRank())).collect(Collectors.joining("\t")));
-
-
-
-
-        for (Test test:tests) {
-            System.out.print(test.getDescription()  + "\t" + test.getTestReports().stream().map(r -> r.getResult()).collect(Collectors.joining("\t")) + "\n" );
+            case MEDIUM:
+                return "\u26A0";
+            case HIGH:
+                return "x";
+            default:
+                return "";
         }
 
 
-        return null;
-
     }
+
+    public List<Report> generateReport(Session session, String path) throws IOException {
+        List<Test> tests = getAll(session, Test.class);
+        if (tests == null || tests.isEmpty()) {
+            System.out.println("No reports found!");
+            return null;
+        }
+
+        Files.deleteIfExists(Paths.get(path));
+
+
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(path), StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW)) {
+            String header = "test," + tests.get(0).getTestReports().stream().map(r -> r.getReport().getName()).collect(Collectors.joining(","));
+
+            writer.write(header);
+            writer.newLine();
+            for (Test test : tests) {
+                String line = test.getDescription() + "," + test.getTestReports().stream().map(r -> writeStatus(r)).collect(Collectors.joining(","));
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+        return null;
+    }
+
+
+    public List<Report> generateReportText(Session session, String path) throws IOException {
+        List<Category> categories = getAll(session, Category.class);
+
+        if (categories == null || categories.isEmpty()) {
+            System.out.println("No reports found!");
+            return null;
+        }
+
+
+        Files.deleteIfExists(Paths.get(path));
+
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(path), StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW)) {
+
+            for (Category c : categories) {
+                String cat = c.getDescription().toUpperCase().replaceAll("[\\n*\\t*\\s*,]", " ");
+
+                if ("Initializing program".equalsIgnoreCase(cat) || cat.startsWith("PLUGIN") || cat.contains("(CUSTOM)"))
+                    continue;
+
+                //writer.write(c.getDescription().toUpperCase() + "\n");
+                writer.write(cat + "," + categories.get(0).getTests().get(0).getTestReports().stream().map(r -> r.getReport().getName()).collect(Collectors.joining(",")) + "\n");
+
+                for (Test test : c.getTests()) {
+                    writer.write("  " + test.getDescription().replaceAll("[\\n*\\t*\\s*,]", " ") + "," + test.getTestReports().stream().map(r -> writeStatus(r)).collect(Collectors.joining(",")) + "\n");
+                }
+            }
+
+        }
+        return null;
+    }
+
 
 }
 
